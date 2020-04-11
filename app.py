@@ -1,13 +1,5 @@
 import streamlit as st
-# import numpy as np
-# import pandas as pd
-# import matplotlib.pyplot as plt
-# import seaborn as sns
-#
 from power import power
-#
-# # importing custom colors
-# from colors import *
 
 pages = ['Home', 'Power']
 
