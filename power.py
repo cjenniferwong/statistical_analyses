@@ -25,10 +25,10 @@ def generate_data(mean, std, sample_size):
 
 def power():
     generate_page()
-    mean_a = int(st.text_input('Enter mean for A:'))
-    std_a = int(st.text_input('Enter std for A:'))
-    mean_b = int(st.text_input('Enter mean for B:'))
-    std_b = int(st.text_input('Enter std for B:'))
+    mean_a = int(st.text_input('Enter mean for A:', 0))
+    std_a = int(st.text_input('Enter std for A:', 1))
+    mean_b = int(st.text_input('Enter mean for B:', 0))
+    std_b = int(st.text_input('Enter std for B:', 1))
 
     max_value = 100
     data_a = generate_data(mean_a, std_a, max_value)
