@@ -18,8 +18,8 @@ def generate_page():
 
 
 @st.cache
-def generate_data(mean, std, sample_size):
-    data = np.random.normal(mean, std, sample_size)
+def generate_data(mean, sample_size):
+    data = np.random.normal(mean, size=sample_size)
     return data
 
 
@@ -33,14 +33,14 @@ def power():
     st.write()
     st.write('Below, we will visualize how sample sizes affect statisical power')
     mean_a = int(st.text_input('Enter mean for A:', 0))
-    std_a = int(st.text_input('Enter std for A:', 1))
+    # std_a = int(st.text_input('Enter std for A:', 1))
     mean_b = int(st.text_input('Enter mean for B:', 0))
-    std_b = int(st.text_input('Enter std for B:', 1))
+    # std_b = int(st.text_input('Enter std for B:', 1))
     sig = float(st.text_input('Enter the significance: ', 0.05))
 
-    max_value = 100
-    data_a = generate_data(mean_a, std_a, max_value)
-    data_b = generate_data(mean_b, std_b, max_value)
+    max_value = 10000
+    data_a = generate_data(mean_a, max_value)
+    data_b = generate_data(mean_b, max_value)
     choice = st.slider('Select the sample size for a and b',
                        min_value=1, max_value=max_value)
     data = pd.DataFrame([data_a, data_b]).T
