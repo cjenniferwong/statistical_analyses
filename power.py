@@ -25,15 +25,24 @@ def generate_data(mean, std, sample_size):
 
 def power():
     generate_page()
+    st.markdown('''There are 4 parts to Power Analysis:''')
+    st.write('- significance (tolerance for false positives)')
+    st.write('- sample sizes')
+    st.write('- effect size')
+    st.write('- statisical power (tolerance for false negatives)')
+    st.write()
+    st.write('Below, we will visualize how sample sizes affect statisical power')
     mean_a = int(st.text_input('Enter mean for A:', 0))
     std_a = int(st.text_input('Enter std for A:', 1))
     mean_b = int(st.text_input('Enter mean for B:', 0))
     std_b = int(st.text_input('Enter std for B:', 1))
+    sig = float(st.text_input('Enter the significance: ', 0.05))
 
     max_value = 100
     data_a = generate_data(mean_a, std_a, max_value)
     data_b = generate_data(mean_b, std_b, max_value)
-    choice = st.slider('Select the sample size', min_value=1, max_value=max_value)
+    choice = st.slider('Select the sample size for a and b',
+                       min_value=1, max_value=max_value)
     data = pd.DataFrame([data_a, data_b]).T
     data.rename(columns={
         0: 'sample_a', 1: 'sample_b'
@@ -45,9 +54,17 @@ def power():
     sns.distplot(sample['sample_b'], color=bar_color, norm_hist=True)
     plt.ylim(0, 1)
     plt.title('Sample Distribution')
+    plt.xlabel('')
 
     st.pyplot()
 
     if st.checkbox('Show raw data:'):
-
         st.dataframe(sample)
+
+    st.markdown('''
+    ## Great! So we should always just gather as much data as we can to maximize the power of our test!
+    That would be true, but there are trade-offs to consider. Note that the longer the experiment,
+    the more time and money is needed gather the data. This is why power analyses are useful!
+    We can identify the minimum sample size needed to conduct out experiement given these a set of constraints.
+
+    ''')

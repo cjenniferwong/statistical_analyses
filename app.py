@@ -9,7 +9,7 @@ from power import power
 # importing custom colors
 from colors import *
 
-pages = ['Home', 'Power', 'Stats Analysis', 'Sampling']
+pages = ['Home', 'Power']
 
 
 @st.cache
@@ -32,7 +32,16 @@ def generate_data(n_columns=10, n_rows=10000):
 def main():
     page = st.sidebar.selectbox('Pages', pages)
     if page == 'Home':
-        st.title('Welcome to Understanding Uncertainty & Sampling')
+        st.title('Mo-Better')
+        st.subheader('Understanding Statistical Tests and Sampling')
+        st.write('(the more data the better)')
+        st.write()
+        st.markdown("""
+        I wanted to create a better way of visualizing and explaining different statistical concepts.
+        Navigate to different pages in the sidebar to check it out! :)
+
+
+        """)
 
     if page == 'Power':
         power()
