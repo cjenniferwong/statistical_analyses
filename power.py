@@ -4,6 +4,9 @@ import seaborn as sns
 from colors import *
 import matplotlib.pyplot as plt
 import pandas as pd
+import warnings
+
+warnings.warn('ignore')
 
 
 def generate_page():
