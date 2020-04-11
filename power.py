@@ -36,7 +36,7 @@ def power():
     # std_a = int(st.text_input('Enter std for A:', 1))
     mean_b = int(st.text_input('Enter mean for B:', 0))
     # std_b = int(st.text_input('Enter std for B:', 1))
-    sig = float(st.text_input('Enter the significance: ', 0.05))
+    # sig = float(st.text_input('Enter the significance: ', 0.05))
 
     max_value = 10000
     data_a = generate_data(mean_a, max_value)
@@ -61,6 +61,10 @@ def power():
     if st.checkbox('Show raw data:'):
         st.dataframe(sample)
 
+    st.markdown("""As we increase the sample size, the more representative our sample will be of the population.
+    This enhances our ability to detect an effect if indeed the effect is present.
+    This is the definition of power! Therefore as our sample size increases, our power increases.
+    """)
     st.markdown('''
     ## Great! So we should always just gather as much data as we can to maximize the power of our test!
     That would be true, but there are trade-offs to consider. Note that the longer the experiment,
