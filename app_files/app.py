@@ -15,16 +15,12 @@ def main():
         st.markdown("""
         I wanted to create a better way of visualizing and explaining different statistical concepts.
         Navigate to different pages in the sidebar to check it out! :)
-
-
         """)
 
     if page == 'Confidence Intervals':
-        print('data again')
         confidence_interval()
 
     if page == 'Power':
-        print('entered power')
         power()
 
 
