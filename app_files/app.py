@@ -2,7 +2,7 @@ import streamlit as st
 from power import power
 from confidence_interval import confidence_interval
 
-pages = ['Home', 'Confidence Intervals', 'Power']
+pages = ['Home', 'Confidence Intervals']
 
 
 def main():
