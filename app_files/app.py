@@ -1,7 +1,8 @@
 import streamlit as st
 from power import power
+from confidence_interval import confidence_interval
 
-pages = ['Home', 'Power']
+pages = ['Home', 'Confidence Intervals', 'Power']
 
 
 def main():
@@ -18,7 +19,12 @@ def main():
 
         """)
 
+    if page == 'Confidence Intervals':
+        print('data again')
+        confidence_interval()
+
     if page == 'Power':
+        print('entered power')
         power()
 
 
