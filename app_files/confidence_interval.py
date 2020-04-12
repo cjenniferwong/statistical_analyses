@@ -38,6 +38,7 @@ def _generate_bootstraps(population, max_value):
 
 def _make_plot(population, sample, confidence):
     sns.distplot(sample, color=bar_color)
+    plt.title('Bootstrapped Sample Means')
     plt.ylabel('KDE Probability Density')
     plt.ylim(0, .2)
     plt.xlim(min(population), max(population))
@@ -50,7 +51,10 @@ def _make_plot(population, sample, confidence):
     plt.axvline(x=upper_bound)
     st.write(
         f'The {confidence} interval for the population mean is: {lower_bound, upper_bound}')
-    plt.title('Bootstrapped Sample Means')
+    st.markdown('''
+    As sample size increases, the <mark>range</mark> of the confidence interval for the point estimate gets smaller.
+    We are able to see this as the distance between the lower bound and upper bound get smaller.
+    ''')
     st.pyplot()
 
 
@@ -70,11 +74,6 @@ def confidence_interval():
     means.rename(columns={0: 'bootstrap_mean'}, inplace=True)
     sample = means.head(sample_size)
     _make_plot(population, sample, confidence)
-
-    st.markdown('''
-    As sample size increases, the range of the confidence interval for the point estimate gets smaller.
-    We are able to see this as the distance between the lower bound and upper bound get smaller.
-    ''')
 
     if st.checkbox('Show Raw Data'):
         st.write(sample)
